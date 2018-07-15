@@ -1,11 +1,8 @@
-<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
-.menu { 
+@import url("http://fonts.googleapis.com/css?family=Montserrat");
 
-	
-}
 
 .menu a{
-	font:34px "Josefin";
+	font: 26px "Montserrat";
 	text-decoration: none;
 	display: inline;
 	float: right;
@@ -14,7 +11,7 @@
 
 }
 .name { 
-font:34px "Josefin";
+font: 34px "Montserrat";
 text-align: left;
 margin: 5px;
 float: left;
@@ -28,7 +25,7 @@ float: left;
 	width: 320px;
 	height: 320px;
 	margin-top: 200px;
-	margin-left: -180px;
+	margin-left: -170px;
 	margin-right: 10px;
 	vertical-align: middle;
 	float: left;
@@ -36,12 +33,12 @@ float: left;
 }
 
 .about {
-	font: 26px "Josefin";
+	font: 26px "Montserrat";
 	margin-top: -370px;
-	margin-left: 380px;
+	margin-left: 390px;
 	display: inline;
 	float: right;
-	margin-right: 30px;
+	margin-right: 50px;
 }
 .linkedin{
 	width: 39px;

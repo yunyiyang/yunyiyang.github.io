@@ -1,4 +1,4 @@
-<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+@import url("http://fonts.googleapis.com/css?family=Montserrat");
 .menu { 
 		text-decoration: none;
 }
@@ -8,7 +8,7 @@
 	text-align: right;
 	margin: 10px;
 	float: right;
-	font: 24px "Josefin";
+	font: 24px "Montserrat";
 	margin-top: -132px;
 	display: inline-block;
 	width: 100%;
@@ -19,7 +19,7 @@
 	text-decoration: none;
 }
 .name { 
-font: 34px "Josefin";
+font: 34px "Montserrat";
 text-align: left;
 margin: 5px;
 float: left;
@@ -41,19 +41,19 @@ margin-top: -138px;
 }
 
 .about h1 {
-	font: 45px "Josefin";
+	font: 45px "Montserrat";
 	display: inline;
 	vertical-align: top;
 
 }
 
 .about h2 {
-	font: 45px "Josefin";
+	font: 45px "Montserrat";
 	color: #9D5F24;
 	display: inline;
 }
 .about p {
-	font: 20px "Josefin";
+	font: 20px "Montserrat";
 	margin-right: 30px;
 	margin-left: 30px;
 }
