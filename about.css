@@ -1,18 +1,25 @@
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
 .menu { 
-	font: 24px "Letter Gothic Std";
+		text-decoration: none;
+}
+
+.menu ul{
+	text-decoration: none;
 	text-align: right;
 	margin: 10px;
 	float: right;
+	font: 24px "Josefin";
 	margin-top: -132px;
+	display: inline-block;
+	width: 100%;
+	text-decoration: none;
 }
 
-.menu a{
+.menu a {
 	text-decoration: none;
-
-
 }
 .name { 
-font:34px "Letter Gothic Std";
+font: 34px "Josefin";
 text-align: left;
 margin: 5px;
 float: left;
@@ -34,19 +41,19 @@ margin-top: -138px;
 }
 
 .about h1 {
-	font: 45px "Letter Gothic Std";
+	font: 45px "Josefin";
 	display: inline;
 	vertical-align: top;
 
 }
 
 .about h2 {
-	font: 45px "Letter Gothic Std";
+	font: 45px "Josefin";
 	color: #9D5F24;
 	display: inline;
 }
 .about p {
-	font: 20px "Letter Gothic Std";
+	font: 20px "Josefin";
 	margin-right: 30px;
 	margin-left: 30px;
 }
