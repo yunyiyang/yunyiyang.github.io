@@ -51,30 +51,12 @@ margin-top: -138px;
 img { 
 	display: inline-block;
 	padding: 2px 2px 2px 2px;
-	margin: auto;
-	align-self: top;
+	margin: 0 auto;
 	vertical-align: top;
 
 
  }
 
 
-.jimage {
-	width: 476;
-	height: 318;
-	vertical-align: top;
-}
 
-.lights {
-	width: 508;
-	height: 327;
-	vertical-align: top;
-	top: -100px;
-}
-
-.building2 {
-	width: 429px;
-	height: 273px;
-	vertical-align: top;
-}
 
