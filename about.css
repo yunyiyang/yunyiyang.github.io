@@ -1,0 +1,58 @@
+.menu { 
+	font: 24px "Letter Gothic Std";
+	text-align: right;
+	margin: 10px;
+	float: right;
+	margin-top: -132px;
+}
+
+.menu a{
+	text-decoration: none;
+
+
+}
+.name { 
+font:34px "Letter Gothic Std";
+text-align: left;
+margin: 5px;
+float: left;
+margin-top: -138px;
+}
+
+.name p{
+	display: inline;
+}
+
+.about {
+	text-align: center;
+	margin-top: 150px;
+	margin-left: 50px;
+	margin-right: 50px;
+
+
+
+}
+
+.about h1 {
+	font: 45px "Letter Gothic Std";
+	display: inline;
+	vertical-align: top;
+
+}
+
+.about h2 {
+	font: 45px "Letter Gothic Std";
+	color: #9D5F24;
+	display: inline;
+}
+.about p {
+	font: 20px "Letter Gothic Std";
+	margin-right: 30px;
+	margin-left: 30px;
+}
+
+.niko {
+	width: 200px;
+	height: 200px;
+	margin-top: 50px;
+}
