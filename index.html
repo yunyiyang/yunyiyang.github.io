@@ -1,26 +1,416 @@
-<!DOCTYPE html> 
-<link href='intro.css' rel='stylesheet' type='text/css'>
-<body>
-	<div class="name"> 
-		<p>Wendy</p><p style="color: #9D5F24;"> Yang</p>
-	</div>
-	<div class ="menu">
-	<ul>
-		<a href="revisedresume.pdf" style="color: black;">| resume</a>
-		<a href="photography.html" style="color: #9D5F24;"> photography </a>
-		<a href="about.html" style="color: black;">about |</a>
-	</ul>
-	</div>
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://launchpad.animaapp.com/preview/fy3GnYU/desktophd -->
+<html>
+<title> Wendy Young </title>
+<script>
+    (function installFakeGeolocationCode() {
+        var timerId = null;
+        if (!navigator.geolocation) {
+            return;
+        }
+        navigator.geolocation.getCurrentPosition_ = navigator.geolocation.getCurrentPosition;
+        navigator.geolocation.watchPosition_ = navigator.geolocation.watchPosition;
+        navigator.geolocation.clearWatch_ = navigator.geolocation.clearWatch;
 
+        navigator.geolocation.clearWatch = function(id) {
+            window.clearInterval(id);
+        };
 
-	<img src="self.png" alt="avatar" class="avatar">
+        function sendBackResponse(successCb, errorCb, options, jsonedResponse) {
+            var response = JSON.parse(jsonedResponse);
+            if (response.isEnabled) {
+                successCb({
+                    'coords': {
+                        'latitude': response.lat,
+                        'longitude': response.lng,
+                        'accuracy': response.accuracy
+                    },
+                    'timestamp': new Date().getTime()
+                });
+            } else {
+                navigator.geolocation.getCurrentPosition_(successCb, errorCb, options);
+            }
+        }
 
-	<a href="https://www.linkedin.com/in/yun-yi-yang/"><img src="linkedin.png" class="linkedin"></a>
-	<a href="https://www.instagram.com/wanderfullzz/"><img src="instagram.png" class="instagram"></a>
-	<a href="mailto:y557yang@uwaterloo.ca"><img src="email.png" class="email"></a>
+        function createGetFakePosition(successCb, errorCb, options) {
+            return function() {
+                var positionElement = document.getElementById('fake_position_meta');
+                if (!positionElement) {
+                    var interval = setInterval(function() {
+                        positionElement = document.getElementById('fake_position_meta');
+                        if (positionElement) {
+                            clearInterval(interval);
+                            sendBackResponse(successCb, errorCb, options, positionElement.getAttribute('content'));
+                        }
+                    }, 200 /* ms */ );
+                } else {
+                    // we already have the div, no need for intervals etc.
+                    sendBackResponse(successCb, errorCb, options, positionElement.getAttribute('content'));
+                }
+            };
+        };
 
-<div class = "about">
-	<p style="color: #9D5F24">Hello, </> 
-	<p> my name is Wendy and I am a third year Math and Business double degree at University of Waterloo and Wilfrid Laurier University. Feel free to have a look around as I like to post my work here.</p>
-	</div>
+        navigator.geolocation.getCurrentPosition = function(cb1, cb2, options) {
+            var getFakePosition = createGetFakePosition(cb1, cb2, options);
+            getFakePosition();
+        };
+
+        navigator.geolocation.watchPosition = function(cb1, cb2, options) {
+            var getFakePosition = createGetFakePosition(cb1, cb2, options);
+            getFakePosition();
+            if (timerId) {
+                window.clearInterval(timerId);
+            }
+            timerId = window.setInterval(getFakePosition, 5 * 1000);
+            return timerId;
+        };
+    })();
+</script>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" type="image/png" href="https://animaapp.s3.amazonaws.com/home/favicon.png">
+    <meta name="viewport" content="width=1440px, maximum-scale=1.0">
+    <style>
+        @font-face {
+            font-family: "LetterGothicStd";
+            src: url('https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bddd9d6e8bf00093804b2/5b4bdddaad5863000b011ced/fonts/LetterGothicStd.otf') format("opentype");
+        }
+        
+        .desktophd {
+            width: 100%;
+            min-width: 1440px;
+            height: 100vh;
+            min-height: 1024px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            background-color: rgba(255, 255, 255, 1.0)
+        }
+        
+        a {
+            text-decoration: none
+        }
+        
+        div {
+            -webkit-text-size-adjust: none
+        }
+        
+        .desktophd .aboutphotography {
+            top: 98px;
+            height: auto;
+            width: auto;
+            position: absolute;
+            margin: 0;
+            left: 915px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            font-family: 'LetterGothicStd', Helvetica, Arial, serif;
+            font-size: 24.0px;
+            color: rgba(3, 4, 7, 1.0);
+            text-align: justify;
+            line-height: 29.0px
+        }
+        
+        .desktophd .hellomynameiswe {
+            top: 383px;
+            height: auto;
+            width: 700px;
+            position: absolute;
+            margin: 0;
+            left: 589px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            font-family: 'LetterGothicStd', Helvetica, Arial, serif;
+            font-size: 24.0px;
+            color: rgba(158, 97, 39, 1.0);
+            text-align: justify;
+            line-height: 50.0px
+        }
+        
+        .desktophd .wendyyang {
+            top: 69px;
+            height: auto;
+            width: auto;
+            position: absolute;
+            margin: 0;
+            left: 78px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            font-family: 'LetterGothicStd', Helvetica, Arial, serif;
+            font-size: 64.0px;
+            color: rgba(3, 4, 7, 1.0);
+            text-align: justify;
+            line-height: 77.0px
+        }
+        
+        .desktophd .group {
+            top: 320px;
+            height: 408px;
+            width: 408px;
+            position: absolute;
+            margin: 0;
+            left: 100px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .group .group1 {
+            top: 0;
+            height: 408px;
+            width: 408px;
+            position: relative;
+            margin: 0;
+            left: 0;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .linkedin {
+            top: 728px;
+            height: 36px;
+            width: 37px;
+            position: absolute;
+            margin: 0;
+            left: 224px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .linkedin .shape {
+            top: 0;
+            height: 36px;
+            width: 37px;
+            position: relative;
+            margin: 0;
+            left: 0;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .instagram {
+            top: 732px;
+            height: 36px;
+            width: 37px;
+            position: absolute;
+            margin: 0;
+            left: 285px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .instagram .instagram1 {
+            top: 0;
+            height: 36px;
+            width: 37px;
+            position: relative;
+            margin: 0;
+            left: 0;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .instagram .instagram1 .shape {
+            top: 0;
+            height: 36px;
+            width: 37px;
+            position: relative;
+            margin: 0;
+            left: 0;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .mail {
+            top: 735px;
+            height: 29px;
+            width: 37px;
+            position: absolute;
+            margin: 0;
+            left: 346px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .mail .shape {
+            top: 0;
+            height: 29px;
+            width: 37px;
+            position: relative;
+            margin: 0;
+            left: 0;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .anima-animate-appear {
+            opacity: 0;
+            display: block;
+            -webkit-animation: anima-reveal .3s ease-in-out 1 normal forwards;
+            -moz-animation: anima-reveal .3s ease-in 1 normal forwards;
+            -o-animation: anima-reveal .3s ease-in-out 1 normal forwards;
+            animation: anima-reveal .3s ease-in-out 1 normal forwards
+        }
+        
+        .anima-animate-disappear {
+            opacity: 1;
+            display: block;
+            -webkit-animation: anima-reveal .3s ease-in-out 1 reverse forwards;
+            -moz-animation: anima-reveal .3s ease-in 1 normal forwards;
+            -o-animation: anima-reveal .3s ease-in-out 1 reverse forwards;
+            animation: anima-reveal .3s ease-in-out 1 reverse forwards
+        }
+        
+        .anima-animate-nodelay {
+            -webkit-animation-delay: 0;
+            -moz-animation-delay: 0;
+            -o-animation-delay: 0;
+            animation-delay: 0
+        }
+        
+        @-webkit-keyframes anima-reveal {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        @-moz-keyframes anima-reveal {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        @-o-keyframes anima-reveal {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        @keyframes anima-reveal {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+    </style>
+    <meta name="author" content="Launchpad by Anima">
+</head>
+
+<body style="margin: 0;
+ background: rgba(255, 255, 255, 1.0);">
+    <input type="hidden" id="anPageName" name="page" value="desktophd">
+    <div class="desktophd">
+        <div style="width: 1440px; height: 100%; position:relative; margin:auto;">
+            <div class="aboutphotography"> <a href="about.html" style="color: black;"> about </a> | <a href="photography.html" style="color: black;"> photography </a> | <a href="resume.pdf" style="color: black;"> resume </a> </div>
+            <div class="hellomynameiswe">Hello, my name is wendy and I am a third year Math and Business double degree at University of Waterloo and Wilfrid Laurier University. Feel free to have a look around as I like to post my work here.</div>
+            <div class="wendyyang">Wendy Yang</div>
+            <div class="group"><img class="group1" src="./index_files/desktop-hd-group.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bddd9d6e8bf00093804b2/5b4bdddaad5863000b011ced/img/desktop-hd-group.png"></div>
+            <div class="linkedin"><img class="shape" src="./index_files/desktop-hd-shape@2x.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bddd9d6e8bf00093804b2/5b4bdddaad5863000b011ced/img/desktop-hd-shape@2x.png"></div>
+            <div class="instagram">
+                <div class="instagram1"><img class="shape" src="./index_files/desktop-hd-shape 1@2x.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bddd9d6e8bf00093804b2/5b4bdddaad5863000b011ced/img/desktop-hd-shape 1@2x.png"></div>
+            </div>
+            <div class="mail"><img class="shape" src="./index_files/desktop-hd-shape 2@2x.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bddd9d6e8bf00093804b2/5b4bdddaad5863000b011ced/img/desktop-hd-shape 2@2x.png"></div>
+        </div>
+    </div>
+    <script>
+        anima_isHidden = function(e) {
+            if (!(e instanceof HTMLElement)) return !1;
+            if (getComputedStyle(e).display == "none") return !0;
+            else if (e.parentNode && anima_isHidden(e.parentNode)) return !0;
+            return !1
+        };
+        anima_loadAsyncSrcForTag = function(tag) {
+            var elements = document.getElementsByTagName(tag);
+            var toLoad = [];
+            for (var i = 0; i < elements.length; i++) {
+                var e = elements[i];
+                var src = e.getAttribute("src");
+                var loaded = (src != undefined && src.length > 0 && src != 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+                if (loaded) continue;
+                var asyncSrc = e.getAttribute("anima-src");
+                if (asyncSrc == undefined || asyncSrc.length == 0) continue;
+                if (anima_isHidden(e)) continue;
+                toLoad.push(e)
+            }
+            toLoad.sort(function(a, b) {
+                return anima_getTop(a) - anima_getTop(b)
+            });
+            for (var i = 0; i < toLoad.length; i++) {
+                var e = toLoad[i];
+                var asyncSrc = e.getAttribute("anima-src");
+                e.setAttribute("src", asyncSrc)
+            }
+        };
+        anima_pauseHiddenVideos = function(tag) {
+            var elements = document.getElementsByTagName("video");
+            for (var i = 0; i < elements.length; i++) {
+                var e = elements[i];
+                var isPlaying = !!(e.currentTime > 0 && !e.paused && !e.ended && e.readyState > 2);
+                var isHidden = anima_isHidden(e);
+                if (!isPlaying && !isHidden && e.getAttribute("autoplay") == "autoplay") {
+                    e.play()
+                } else if (isPlaying && isHidden) {
+                    e.pause()
+                }
+            }
+        };
+        anima_loadAsyncSrc = function(tag) {
+            anima_loadAsyncSrcForTag("img");
+            anima_loadAsyncSrcForTag("iframe");
+            anima_loadAsyncSrcForTag("video");
+            anima_pauseHiddenVideos()
+        };
+        var anima_getTop = function(e) {
+            var top = 0;
+            do {
+                top += e.offsetTop || 0;
+                e = e.offsetParent
+            } while (e);
+            return top
+        };
+        anima_loadAsyncSrc();
+        anima_old_onResize = window.onresize;
+        anima_new_onResize = undefined;
+        anima_updateOnResize = function() {
+            if (anima_new_onResize == undefined || window.onresize != anima_new_onResize) {
+                anima_new_onResize = function(x) {
+                    if (anima_old_onResize != undefined) anima_old_onResize(x);
+                    anima_loadAsyncSrc()
+                }
+                window.onresize = anima_new_onResize;
+                setTimeout(function() {
+                    anima_updateOnResize()
+                }, 3000)
+            }
+        };
+        anima_updateOnResize();
+        setTimeout(function() {
+            anima_loadAsyncSrc()
+        }, 200)
+    </script>
 </body>
+
+</html>

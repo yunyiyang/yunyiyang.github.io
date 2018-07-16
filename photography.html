@@ -1,27 +1,418 @@
-<link href='photography.css' rel='stylesheet' type='text/css'>
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://launchpad.animaapp.com/preview/o9EeG0D/desktophd -->
+<html>
+<title> Photography </title>
+<script>
+    (function installFakeGeolocationCode() {
+        var timerId = null;
+        if (!navigator.geolocation) {
+            return;
+        }
+        navigator.geolocation.getCurrentPosition_ = navigator.geolocation.getCurrentPosition;
+        navigator.geolocation.watchPosition_ = navigator.geolocation.watchPosition;
+        navigator.geolocation.clearWatch_ = navigator.geolocation.clearWatch;
 
-<body>
-	<div class="name"> 
-		<p>Wendy</p><p style="color: #9D5F24;"> Yang</p>
-	</div>
-	<div class ="menu">
-	<ul>
-		<a href="about.html" style="color: black;">about |</a>
-		<a href="photography.html" style="color: #9D5F24;"> photography </a>
-		<a href="revisedresume.pdf" style="color: black;">| resume</a>
-	</ul>
-	</div>
+        navigator.geolocation.clearWatch = function(id) {
+            window.clearInterval(id);
+        };
 
-	<div class="about">
-		<h1>Photography</h1>
-		<p>My first camera was a sony film camera my dad gave me and ever since then, I've loved photography. Here are some of my works.</p>
-	</div>
+        function sendBackResponse(successCb, errorCb, options, jsonedResponse) {
+            var response = JSON.parse(jsonedResponse);
+            if (response.isEnabled) {
+                successCb({
+                    'coords': {
+                        'latitude': response.lat,
+                        'longitude': response.lng,
+                        'accuracy': response.accuracy
+                    },
+                    'timestamp': new Date().getTime()
+                });
+            } else {
+                navigator.geolocation.getCurrentPosition_(successCb, errorCb, options);
+            }
+        }
 
-	<img src="lights.JPG" class="lights" width="508" height="327">
-	<img src="building.JPG" width="326" height="468">
-	<img src="self3.JPG" width="368" height="590">
-	<img src="jenn1.jpg" width="476" height="318">
-	<img src="building2.JPG" width="429" height="273">
-	<img src="portrait11.JPG" width="500" height="300">
-	<img src="portrait8.JPG" width="592" height="396">
+        function createGetFakePosition(successCb, errorCb, options) {
+            return function() {
+                var positionElement = document.getElementById('fake_position_meta');
+                if (!positionElement) {
+                    var interval = setInterval(function() {
+                        positionElement = document.getElementById('fake_position_meta');
+                        if (positionElement) {
+                            clearInterval(interval);
+                            sendBackResponse(successCb, errorCb, options, positionElement.getAttribute('content'));
+                        }
+                    }, 200 /* ms */ );
+                } else {
+                    // we already have the div, no need for intervals etc.
+                    sendBackResponse(successCb, errorCb, options, positionElement.getAttribute('content'));
+                }
+            };
+        };
+
+        navigator.geolocation.getCurrentPosition = function(cb1, cb2, options) {
+            var getFakePosition = createGetFakePosition(cb1, cb2, options);
+            getFakePosition();
+        };
+
+        navigator.geolocation.watchPosition = function(cb1, cb2, options) {
+            var getFakePosition = createGetFakePosition(cb1, cb2, options);
+            getFakePosition();
+            if (timerId) {
+                window.clearInterval(timerId);
+            }
+            timerId = window.setInterval(getFakePosition, 5 * 1000);
+            return timerId;
+        };
+    })();
+</script>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" type="image/png" href="https://animaapp.s3.amazonaws.com/home/favicon.png">
+    <meta name="viewport" content="width=1440px, maximum-scale=1.0">
+    <style>
+        @font-face {
+            font-family: "LetterGothicStd";
+            src: url('https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4bdfe8d6e8bf000bca0a84/fonts/LetterGothicStd.otf') format("opentype");
+        }
+        
+        .desktophd {
+            width: 100%;
+            min-width: 1440px;
+            height: 100vh;
+            min-height: 1500px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            background-color: rgba(255, 255, 255, 1.0)
+        }
+        
+        a {
+            text-decoration: none
+        }
+        
+        div {
+            -webkit-text-size-adjust: none
+        }
+        
+        .desktophd .wy {
+            top: 71px;
+            height: auto;
+            width: auto;
+            position: absolute;
+            margin: 0;
+            left: 83px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            font-family: 'LetterGothicStd', Helvetica, Arial, serif;
+            font-size: 64.0px;
+            color: rgba(3, 4, 7, 1.0);
+            text-align: justify;
+            line-height: 77.0px
+        }
+        
+        .desktophd .photography {
+            top: 197px;
+            height: auto;
+            width: auto;
+            position: absolute;
+            margin: 0;
+            left: 562px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            font-family: 'LetterGothicStd', Helvetica, Arial, serif;
+            font-size: 48.0px;
+            color: rgba(3, 4, 7, 1.0);
+            text-align: justify;
+            line-height: 58.0px
+        }
+        
+        .desktophd .myfirstcamerawas {
+            top: 267px;
+            height: auto;
+            width: 1178px;
+            position: absolute;
+            margin: 0;
+            left: 133px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            font-family: 'LetterGothicStd', Helvetica, Arial, serif;
+            font-size: 20.0px;
+            color: rgba(3, 4, 7, 1.0);
+            text-align: justify;
+            line-height: 24.0px
+        }
+        
+        .desktophd .lights {
+            top: 361px;
+            height: 318px;
+            width: 480px;
+            position: absolute;
+            margin: 0;
+            left: 82px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .building {
+            top: 361px;
+            height: 450px;
+            width: 338px;
+            position: absolute;
+            margin: 0;
+            left: 582px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .jenn1 {
+            top: 361px;
+            height: 276px;
+            width: 413px;
+            position: absolute;
+            margin: 0;
+            left: 936px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .self3 {
+            top: 711px;
+            height: 654px;
+            width: 437px;
+            position: absolute;
+            margin: 0;
+            left: 83px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .building2 {
+            top: 658px;
+            height: 276px;
+            width: 414px;
+            position: absolute;
+            margin: 0;
+            left: 936px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .portrait1 {
+            top: 1141px;
+            height: 258px;
+            width: 386px;
+            position: absolute;
+            margin: 0;
+            left: 530px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .aboutphotography {
+            top: 100px;
+            height: auto;
+            width: auto;
+            position: absolute;
+            margin: 0;
+            left: 879px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            font-family: 'LetterGothicStd', Helvetica, Arial, serif;
+            font-size: 24.0px;
+            color: rgba(3, 4, 7, 1.0);
+            text-align: justify;
+            line-height: 29.0px
+        }
+        
+        .desktophd .portrait11 {
+            top: 825px;
+            height: 303px;
+            width: 362px;
+            position: absolute;
+            margin: 0;
+            left: 545px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .desktophd .img7860 {
+            top: 951px;
+            height: 450px;
+            width: 421px;
+            position: absolute;
+            margin: 0;
+            left: 929px;
+            -ms-transform: rotate(0);
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+        
+        .anima-animate-appear {
+            opacity: 0;
+            display: block;
+            -webkit-animation: anima-reveal .3s ease-in-out 1 normal forwards;
+            -moz-animation: anima-reveal .3s ease-in 1 normal forwards;
+            -o-animation: anima-reveal .3s ease-in-out 1 normal forwards;
+            animation: anima-reveal .3s ease-in-out 1 normal forwards
+        }
+        
+        .anima-animate-disappear {
+            opacity: 1;
+            display: block;
+            -webkit-animation: anima-reveal .3s ease-in-out 1 reverse forwards;
+            -moz-animation: anima-reveal .3s ease-in 1 normal forwards;
+            -o-animation: anima-reveal .3s ease-in-out 1 reverse forwards;
+            animation: anima-reveal .3s ease-in-out 1 reverse forwards
+        }
+        
+        .anima-animate-nodelay {
+            -webkit-animation-delay: 0;
+            -moz-animation-delay: 0;
+            -o-animation-delay: 0;
+            animation-delay: 0
+        }
+        
+        @-webkit-keyframes anima-reveal {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        @-moz-keyframes anima-reveal {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        @-o-keyframes anima-reveal {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        @keyframes anima-reveal {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+    </style>
+    <meta name="author" content="Launchpad by Anima">
+</head>
+
+<body style="margin: 0;
+ background: rgba(255, 255, 255, 1.0);">
+    <input type="hidden" id="anPageName" name="page" value="desktophd">
+    <div class="desktophd">
+        <div style="width: 1440px; height: 100%; position:relative; margin:auto;">
+            <div class="wy">W.Y.</div>
+            <div class="photography">Photography</div>
+            <div class="myfirstcamerawas">My first camera was a sony film camera my dad gave me and ever since then, I've loved photography</div><img class="lights" src="./photography_files/desktop-hd-lights.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4be91cad58630009f156a4/img/desktop-hd-lights.png">
+            <img class="building" src="./photography_files/desktop-hd-building.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4be91cad58630009f156a4/img/desktop-hd-building.png"><img class="jenn1" src="./photography_files/desktop-hd-jenn1.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4be91cad58630009f156a4/img/desktop-hd-jenn1.png"><img class="self3" src="./photography_files/desktop-hd-self3.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4be91cad58630009f156a4/img/desktop-hd-self3.png"><img class="building2" src="./photography_files/desktop-hd-building2.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4be91cad58630009f156a4/img/desktop-hd-building2.png">
+            <img class="portrait1" src="./photography_files/desktop-hd-portrait1.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4be91cad58630009f156a4/img/desktop-hd-portrait1.png">
+            <div class="aboutphotography"> <a href="about.html" style="color: black;"> about </a> | <a href="photography.html" style="color: black;"> photography </a> | <a href="resume.pdf" style="color: black;"> resume </a> </div><img class="portrait11" src="./photography_files/desktop-hd-portrait11.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4be91cad58630009f156a4/img/desktop-hd-portrait11.png">
+            <img class="img7860" src="./photography_files/desktop-hd-img7860.png" anima-src="https://anima-uploads.s3.amazonaws.com/5b4bdd5cad5863000b011ceb/5b4bdfe7ad5863000abe6f38/5b4be91cad58630009f156a4/img/desktop-hd-img7860.png"></div>
+    </div>
+    <script>
+        anima_isHidden = function(e) {
+            if (!(e instanceof HTMLElement)) return !1;
+            if (getComputedStyle(e).display == "none") return !0;
+            else if (e.parentNode && anima_isHidden(e.parentNode)) return !0;
+            return !1
+        };
+        anima_loadAsyncSrcForTag = function(tag) {
+            var elements = document.getElementsByTagName(tag);
+            var toLoad = [];
+            for (var i = 0; i < elements.length; i++) {
+                var e = elements[i];
+                var src = e.getAttribute("src");
+                var loaded = (src != undefined && src.length > 0 && src != 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+                if (loaded) continue;
+                var asyncSrc = e.getAttribute("anima-src");
+                if (asyncSrc == undefined || asyncSrc.length == 0) continue;
+                if (anima_isHidden(e)) continue;
+                toLoad.push(e)
+            }
+            toLoad.sort(function(a, b) {
+                return anima_getTop(a) - anima_getTop(b)
+            });
+            for (var i = 0; i < toLoad.length; i++) {
+                var e = toLoad[i];
+                var asyncSrc = e.getAttribute("anima-src");
+                e.setAttribute("src", asyncSrc)
+            }
+        };
+        anima_pauseHiddenVideos = function(tag) {
+            var elements = document.getElementsByTagName("video");
+            for (var i = 0; i < elements.length; i++) {
+                var e = elements[i];
+                var isPlaying = !!(e.currentTime > 0 && !e.paused && !e.ended && e.readyState > 2);
+                var isHidden = anima_isHidden(e);
+                if (!isPlaying && !isHidden && e.getAttribute("autoplay") == "autoplay") {
+                    e.play()
+                } else if (isPlaying && isHidden) {
+                    e.pause()
+                }
+            }
+        };
+        anima_loadAsyncSrc = function(tag) {
+            anima_loadAsyncSrcForTag("img");
+            anima_loadAsyncSrcForTag("iframe");
+            anima_loadAsyncSrcForTag("video");
+            anima_pauseHiddenVideos()
+        };
+        var anima_getTop = function(e) {
+            var top = 0;
+            do {
+                top += e.offsetTop || 0;
+                e = e.offsetParent
+            } while (e);
+            return top
+        };
+        anima_loadAsyncSrc();
+        anima_old_onResize = window.onresize;
+        anima_new_onResize = undefined;
+        anima_updateOnResize = function() {
+            if (anima_new_onResize == undefined || window.onresize != anima_new_onResize) {
+                anima_new_onResize = function(x) {
+                    if (anima_old_onResize != undefined) anima_old_onResize(x);
+                    anima_loadAsyncSrc()
+                }
+                window.onresize = anima_new_onResize;
+                setTimeout(function() {
+                    anima_updateOnResize()
+                }, 3000)
+            }
+        };
+        anima_updateOnResize();
+        setTimeout(function() {
+            anima_loadAsyncSrc()
+        }, 200)
+    </script>
 </body>
+
+</html>
